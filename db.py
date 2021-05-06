@@ -12,21 +12,39 @@ conn = sqlite3.connect('customer.db')#creating and connecting to db
 # conn.close()# closing the connection
 
 #Insert into table
+# c = conn.cursor()
+# c.execute("INSERT INTO customers VALUES ('John','Elder','john@yahoo.com')")
+# conn.commit() #commit our command
+# conn.close()# closing the connection
+
+# conn = sqlite3.connect('customer.db')
+# c = conn.cursor()
+# c.execute("INSERT INTO customers VALUES ('Tim','Smith','tim@yahoo.com')")
+# conn.commit() #commit our command
+# conn.close()# closing the connection
+
+# conn = sqlite3.connect('customer.db')
+# c = conn.cursor()
+# c.execute("INSERT INTO customers VALUES ('Mary','Beth','mary@yahoo.com')")
+# conn.commit() #commit our command
+# conn.close()# closing the connection
+
+# conn = sqlite3.connect('customer.db')
+# c = conn.cursor()
+# many_customers = [
+#                 ('Wes','Brown','wes@brown.com'),
+#                 ('Stef', 'King','stef@gmail.com'),
+#                 ('Dan','Childs','dan@yahoo.com'),
+#                 ]
+# c.executemany("INSERT INTO customers VALUES (?,?,?)", many_customers)
+# conn.commit() #commit our command
+# conn.close()# closing the connection
+
+#Query the database
 c = conn.cursor()
-c.execute("INSERT INTO customers VALUES ('John','Elder','john@yahoo.com')")
+c.execute("SELECT * FROM customers")
+# c.fetchone()
+# c.fetchmany(3)
+print(c.fetchall())
 conn.commit() #commit our command
-conn.close()# closing the connection
-
-conn = sqlite3.connect('customer.db')
-c = conn.cursor()
-c.execute("INSERT INTO customers VALUES ('Tim','Smith','tim@yahoo.com')")
-conn.commit() #commit our command
-conn.close()# closing the connection
-
-conn = sqlite3.connect('customer.db')
-c = conn.cursor()
-c.execute("INSERT INTO customers VALUES ('Mary','Beth','mary@yahoo.com')")
-conn.commit() #commit our command
-conn.close()# closing the connection
-
-
+conn.close()
