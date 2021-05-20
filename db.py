@@ -42,7 +42,7 @@ conn = sqlite3.connect('customer.db')#creating and connecting to db
 
 #Query the database
 c = conn.cursor()
-c.execute("SELECT * FROM customers")
+c.execute("SELECT * FROM customers WHERE last_name LIKE 'Br%'")
 # c.fetchone()
 # c.fetchmany(3)
 print(c.fetchall())
