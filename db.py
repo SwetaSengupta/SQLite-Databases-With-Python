@@ -68,3 +68,12 @@ def show_all():
         print(item)
     conn.commit()  #commit our command
     conn.close()  # close our connection
+
+#add a new record to the table
+def add_one(first, last, email):
+    conn = sqlite3.connect('customer.db')
+    c = conn.cursor()
+    c.execute("INSERT INTO customer VALUES(?,?,?)", (first,last,email))
+    conn.commit()
+    conn.close()
+
