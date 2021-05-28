@@ -46,9 +46,9 @@ c = conn.cursor()
 # c.fetchone()
 # c.fetchmany(3)
 #UPDATE Records
-c.execute("SELECT * FROM customers WHERE last_name LIKE 'Br%' AND rowid = 1")
+#c.execute("SELECT * FROM customers WHERE last_name LIKE 'Br%' AND rowid = 1")
 #c.execute("SELECT * FROM customers WHERE last_name LIKE 'Br%' OR rowid = 3")
-
+c.execute("DROP TABLE customers ")
 print(c.fetchall())
 conn.commit() #commit our command
 conn.close()
