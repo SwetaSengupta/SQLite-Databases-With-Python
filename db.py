@@ -42,9 +42,15 @@ conn = sqlite3.connect('customer.db')#creating and connecting to db
 
 #Query the database
 c = conn.cursor()
-c.execute("SELECT * FROM customers WHERE last_name LIKE 'Br%'")
+# c.execute("SELECT * FROM customers WHERE last_name LIKE 'Br%'")
 # c.fetchone()
 # c.fetchmany(3)
+#UPDATE Records
+
+
+
+
+
 print(c.fetchall())
 conn.commit() #commit our command
 conn.close()
