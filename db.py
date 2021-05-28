@@ -1,5 +1,5 @@
 import sqlite3
-conn = sqlite3.connect('customer.db')#creating and connecting to db
+#conn = sqlite3.connect('customer.db')#creating and connecting to db
 #conn = sqlite3.connect(':memory')# connecting to an existing database
 #c = conn.cursor() # create the cursor
 #create a table
@@ -41,14 +41,30 @@ conn = sqlite3.connect('customer.db')#creating and connecting to db
 # conn.close()# closing the connection
 
 #Query the database
-c = conn.cursor()
+#c = conn.cursor()
 # c.execute("SELECT * FROM customers WHERE last_name LIKE 'Br%'")
 # c.fetchone()
 # c.fetchmany(3)
 #UPDATE Records
 #c.execute("SELECT * FROM customers WHERE last_name LIKE 'Br%' AND rowid = 1")
 #c.execute("SELECT * FROM customers WHERE last_name LIKE 'Br%' OR rowid = 3")
-c.execute("DROP TABLE customers ")
-print(c.fetchall())
-conn.commit() #commit our command
-conn.close()
+#c.execute("DROP TABLE customers ")
+# print(c.fetchall())
+# conn.commit() #commit our command
+# conn.close()
+
+# Query the DB and return All Records
+def show_all():
+    #connect to db
+    conn = sqlite3.connect('customer.db')
+    #create the cursor
+    c = conn.cursor()
+
+    #query the db
+    c.execute("SELECT rowid,* FROM customers")
+    items = c.fetchall()
+
+    for item in items:
+        print(item)
+    conn.commit()  #commit our command
+    conn.close()  # close our connection
